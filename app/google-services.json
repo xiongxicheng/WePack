@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "806785266879",
+    "firebase_url": "https://wepack-36204.firebaseio.com",
+    "project_id": "wepack-36204",
+    "storage_bucket": "wepack-36204.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806785266879:android:ed4568aa1f559f50",
+        "android_client_info": {
+          "package_name": "com.example.xiongxicheng.wepack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806785266879-se3t5m32o6ct4j71pvbgku2fouu7ocq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHfGfwEE9jupS7RbIWXqTTst-31k-TeDI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

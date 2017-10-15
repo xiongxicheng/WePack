@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.xiongxicheng.wepack.CreateTripActivity">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <EditText
+            android:id="@+id/editTextDestination"
+            android:hint="Enter your Destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="43dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:hint="Enter Start Date"
+            android:id="@+id/editTextStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:ems="10"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:layout_below="@+id/editTextDestination"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:hint="Enter End Date"
+            android:id="@+id/editTextEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editTextStartDate"
+            android:layout_alignRight="@+id/editTextStartDate"
+            android:layout_below="@+id/editTextStartDate"
+            android:layout_marginTop="31dp"
+            android:ems="10"
+            android:inputType="date"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/buttonCreateList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:layout_below="@+id/editTextEndDate"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

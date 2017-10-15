@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.xiongxicheng.wepack.HomeActivity">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Trip"
+            android:id="@+id/buttonCreate"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/buttonLists"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="21dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Lists"
+            android:id="@+id/buttonLists"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/buttonViewInvitation"
+            android:layout_alignLeft="@+id/buttonLogout"
+            android:layout_alignStart="@+id/buttonLogout"
+            android:layout_marginBottom="17dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Invitation"
+            android:id="@+id/buttonViewInvitation"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log out"
+            android:id="@+id/buttonLogout"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp" />
+
+
+        </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
