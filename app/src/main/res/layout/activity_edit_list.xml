@@ -6,119 +6,90 @@
     android:layout_height="match_parent"
     tools:context="com.example.xiongxicheng.wepack.EditListActivity">
 
+        <RelativeLayout
+            android:layout_width="368dp"
+            android:layout_height="495dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+                <ListView
+                    android:id="@+id/listViewPackList"
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
-        <CheckBox
-            android:id="@+id/checkBox7"
+
+                <Button
+            android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="84dp"
-            android:text="Umbrella" />
+            android:text="Add"
+                    android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+                    android:layout_below="@+id/listViewPackList"
+                    android:layout_toRightOf="@+id/editTextAdd"
+                    android:layout_toEndOf="@+id/editTextAdd" />
 
-        <CheckBox
-            android:id="@+id/checkBox8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/checkBox7"
-            android:layout_alignStart="@+id/checkBox7"
-            android:layout_below="@+id/checkBox7"
-            android:layout_marginTop="14dp"
-            android:text="Scarf" />
+                <Button
+                    android:id="@+id/buttonSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:text="Save"
+                    android:layout_below="@+id/buttonAdd"
+                    android:layout_alignLeft="@+id/buttonAdd"
+                    android:layout_alignStart="@+id/buttonAdd" />
 
-        <CheckBox
-            android:id="@+id/checkBox9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/checkBox8"
-            android:layout_alignStart="@+id/checkBox8"
-            android:layout_below="@+id/checkBox8"
-            android:layout_marginTop="16dp"
-            android:text="Pajama" />
+                <EditText
+                    android:id="@+id/editTextAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="more item"
+                    android:layout_above="@+id/buttonSave"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginStart="13dp" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/checkBox9"
-            android:layout_alignStart="@+id/checkBox9"
-            android:layout_centerVertical="true"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="More Item" />
+                <Button
+                    android:id="@+id/buttonShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="share"
+                    android:layout_below="@+id/buttonSave"
+                    android:layout_alignLeft="@+id/buttonSave"
+                    android:layout_alignStart="@+id/buttonSave"
+                    android:layout_marginTop="13dp" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/editText2"
-            android:layout_marginLeft="19dp"
-            android:layout_marginStart="19dp"
-            android:layout_toEndOf="@+id/editText2"
-            android:layout_toRightOf="@+id/editText2"
-            android:text="ADD" />
+                <EditText
+                    android:id="@+id/editTextShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonShare"
+                    android:layout_alignLeft="@+id/editTextAdd"
+                    android:layout_alignStart="@+id/editTextAdd"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="name/email address" />
 
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Save"
-            android:layout_below="@+id/button2"
-            android:layout_alignRight="@+id/checkBox9"
-            android:layout_alignEnd="@+id/checkBox9" />
+                <Button
+                    android:id="@+id/buttonLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log out"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@+id/editTextShare"
+                    android:layout_alignEnd="@+id/editTextShare" />
 
-        <Button
-            android:id="@+id/buttonShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Share"
-            android:layout_alignTop="@+id/editText3"
-            android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="34dp"
-            android:textSize="25dp"
-            android:layout_toEndOf="@+id/checkBox7"
-            android:layout_toRightOf="@+id/checkBox7"
-            android:text="My List" />
+        </RelativeLayout>
 
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Enter an email address"
-            android:layout_below="@+id/buttonSave"
-            android:layout_toLeftOf="@+id/button2"
-            android:layout_toStartOf="@+id/button2"
-            android:layout_marginTop="16dp" />
 
-        <Button
-            android:id="@+id/buttonLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Log Out"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/buttonShare"
-            android:layout_alignStart="@+id/buttonShare"
-            android:layout_marginBottom="13dp" />
-    </RelativeLayout>
+
+
 </android.support.constraint.ConstraintLayout>
