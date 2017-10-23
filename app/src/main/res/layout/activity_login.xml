@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical"
+        android:background="@drawable/bg"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="135dp">
 
@@ -20,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:textStyle="italic"
             android:hint="Enter your email"
             android:inputType="textEmailAddress" />
 
@@ -28,21 +30,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:textStyle="italic"
             android:hint="Enter your password"
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/buttonSignin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="88dp"
+            android:layout_height="80dp"
             android:layout_margin="15dp"
-            android:text="Sign in" />
+            android:background="@drawable/signin"
+            android:layout_gravity="center"/>
 
         <TextView
             android:textAlignment="center"
             android:id="@+id/textViewSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
             android:text="No Account? Register here" />
     </LinearLayout>
 

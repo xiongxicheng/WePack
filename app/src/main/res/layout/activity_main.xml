@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical"
+        android:background="@drawable/bg"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="135dp">
 
@@ -20,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:textStyle="italic"
             android:hint="Enter your email"
             android:inputType="textEmailAddress" />
 
@@ -28,22 +30,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:textStyle="italic"
             android:hint="Enter your password"
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/buttonSignup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="97dp"
+            android:layout_height="70dp"
             android:layout_margin="15dp"
-            android:text="Register User" />
+            android:layout_gravity="center"
+            android:background="@drawable/join"
+            android:layout_weight="0.03" />
 
         <TextView
             android:textAlignment="center"
             android:id="@+id/textViewSignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Already Registered? Sign in here" />
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:text="Already Registered? Sign in here"
+            android:layout_weight="0.08"/>
     </LinearLayout>
 
 
