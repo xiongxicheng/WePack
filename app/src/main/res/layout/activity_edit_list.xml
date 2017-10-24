@@ -87,7 +87,8 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:hint="name/email address"
-                    android:textColorHint="@color/white"    />
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"/>
 
                 <Button
                     android:id="@+id/buttonLogout"
