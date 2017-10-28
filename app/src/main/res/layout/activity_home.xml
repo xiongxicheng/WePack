@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/bg2"
+        android:background="@color/background"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp">
 
@@ -24,9 +24,9 @@
             android:background="@drawable/buttonframe"
             android:id="@+id/buttonCreate"
             android:layout_gravity="center_horizontal"
-            android:layout_alignParentTop="true"
+            android:layout_above="@+id/buttonLists"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="17dp" />
+            android:layout_marginBottom="12dp" />
         <Button
             android:layout_width="200dp"
             android:layout_height="100dp"
@@ -34,9 +34,11 @@
             android:text="My Lists"
             android:id="@+id/buttonLists"
             android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/buttonCreate"
+            android:layout_above="@+id/buttonLogout"
             android:layout_alignLeft="@+id/buttonCreate"
-            android:layout_alignStart="@+id/buttonCreate" />
+            android:layout_alignStart="@+id/buttonCreate"
+            android:layout_marginBottom="54dp" />
+        <!--
         <Button
             android:layout_width="200dp"
             android:layout_height="100dp"
@@ -47,17 +49,17 @@
             android:layout_below="@+id/buttonLists"
             android:layout_alignLeft="@+id/buttonLists"
             android:layout_alignStart="@+id/buttonLists" />
+            -->
         <Button
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@drawable/logout"
             android:text="Log out"
             android:id="@+id/buttonLogout"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/buttonViewInvitation"
-            android:layout_toEndOf="@+id/buttonViewInvitation" />
+            android:layout_centerHorizontal="true" />
 
 
         </RelativeLayout>

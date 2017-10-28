@@ -9,7 +9,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg2"
+            android:background="@color/background"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
 
@@ -28,8 +28,8 @@
                     android:layout_height="wrap_content"
                     android:text="Add"
                     android:textStyle="bold"
+                    android:background="@color/button"
                     android:textColor="@color/white"
-                    android:background="@color/brown"
                     android:layout_marginTop="11dp"
                     android:layout_below="@+id/listViewPackList"
                     android:layout_alignRight="@+id/listViewPackList"
@@ -42,8 +42,8 @@
                     android:layout_marginTop="11dp"
                     android:text="Save"
                     android:textStyle="bold"
+                    android:background="@color/button"
                     android:textColor="@color/white"
-                    android:background="@color/brown"
                     android:layout_below="@+id/buttonAdd"
                     android:layout_alignLeft="@+id/buttonAdd"
                     android:layout_alignStart="@+id/buttonAdd"
@@ -71,7 +71,7 @@
                     android:text="share"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:background="@color/brown"
+                    android:background="@color/button"
                     android:layout_below="@+id/buttonSave"
                     android:layout_alignLeft="@+id/buttonSave"
                     android:layout_alignStart="@+id/buttonSave"
@@ -86,14 +86,12 @@
                     android:layout_alignStart="@+id/editTextAdd"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="name/email address"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"/>
+                    android:hint="name/email address" />
 
                 <Button
                     android:id="@+id/buttonLogout"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
                     android:text="Log out"
                     android:textStyle="bold"
                     android:textColor="@color/white"

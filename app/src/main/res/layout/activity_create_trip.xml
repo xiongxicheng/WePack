@@ -9,53 +9,76 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg2"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:background="@color/background"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
         <EditText
             android:id="@+id/editTextDestination"
-            android:hint="Enter your Destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_marginTop="43dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_above="@+id/editTextStartDate"
+            android:layout_centerHorizontal="true"
+            android:hint="Enter your Destination"
+            android:textAlignment="center" />
 
         <EditText
-            android:hint="Enter Start Date"
             android:id="@+id/editTextStartDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
+            android:layout_alignBottom="@+id/editTextEndDate"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="49dp"
+            android:clickable="true"
             android:ems="10"
-            android:inputType="date"
-            android:textAlignment="center"
-            android:layout_below="@+id/editTextDestination"
-            android:layout_centerHorizontal="true" />
+            android:hint="Select Start Date"
+            android:inputType="none"
+            android:textAlignment="center" />
 
         <EditText
-            android:hint="Enter End Date"
             android:id="@+id/editTextEndDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editTextStartDate"
-            android:layout_alignRight="@+id/editTextStartDate"
-            android:layout_below="@+id/editTextStartDate"
-            android:layout_marginTop="31dp"
+            android:layout_above="@+id/buttonCreateList"
+            android:layout_alignLeft="@+id/editTextStartDate"
+            android:layout_alignStart="@+id/editTextStartDate"
+            android:layout_marginBottom="84dp"
+            android:clickable="true"
             android:ems="10"
-            android:inputType="date"
-            android:textAlignment="center"/>
+            android:hint="Select End Date"
+            android:inputType="none"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/buttonCreateList"
             android:layout_width="200dp"
             android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/buttonframe"
             android:text="Create"
-            android:layout_below="@+id/editTextEndDate"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/editTextListName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/editTextStartDate"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/editTextStartDate"
+            android:layout_marginTop="31dp"
+            android:ems="10"
+            android:hint="List Name"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/spinnerTripType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextListName"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="31dp"
+            android:spinnerMode="dropdown" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

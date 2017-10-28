@@ -9,12 +9,13 @@ import java.util.List;
 public class PackList {
     List<String> items;
     TripInfo tripInfo;
+    String listName;
     public PackList(TripInfo tripInfo){
         this.tripInfo = tripInfo;
     }
 
-    public List<String> getItems() {
-        return items;
+    public List<String> getList() {
+        return this.items;
     }
 
     public void addItems(String item) {
@@ -24,4 +25,5 @@ public class PackList {
     public void deleteItems(String item) {
         items.remove(item);
     }
+
 }

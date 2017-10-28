@@ -12,17 +12,18 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        android:background="@drawable/bg"
+        android:background="@color/background"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="135dp">
+        tools:layout_editor_absoluteY="8dp">
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginTop="200dp"
             android:textStyle="italic"
             android:hint="Enter your email"
+            android:textAlignment="center"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:textStyle="italic"
+            android:textAlignment="center"
             android:hint="Enter your password"
             android:inputType="textPassword" />
 
@@ -39,17 +41,19 @@
             android:layout_width="88dp"
             android:layout_height="80dp"
             android:layout_margin="15dp"
-            android:background="@drawable/signin"
+            android:background="@drawable/logout"
+            android:text="Sign In"
+            android:textColor="@color/white"
             android:layout_gravity="center"/>
 
         <TextView
-            android:textAlignment="center"
             android:id="@+id/textViewSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"
-            android:text="No Account? Register here" />
+            android:text="No Account? Register here"
+            android:textAlignment="center"
+            android:textColor="@color/button"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

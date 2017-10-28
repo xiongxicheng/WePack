@@ -15,7 +15,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button buttonLogout;
     private Button buttonCreate;
-    private Button buttonViewInvitation;
+//    private Button buttonViewInvitation;
     private Button buttonLists;
 
 
@@ -34,13 +34,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         buttonCreate = (Button) findViewById(R.id.buttonCreate);
-        buttonViewInvitation = (Button) findViewById(R.id.buttonViewInvitation);
+        //buttonViewInvitation = (Button) findViewById(R.id.buttonViewInvitation);
         buttonLists = (Button) findViewById(R.id.buttonLists);
 
         buttonLogout.setOnClickListener(this);
         buttonCreate.setOnClickListener(this);
         buttonLists.setOnClickListener(this);
-        buttonViewInvitation.setOnClickListener(this);
+        //buttonViewInvitation.setOnClickListener(this);
     }
 
     @Override
@@ -58,12 +58,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if(view==buttonLists){
             //view my lists
             finish();
-            startActivity(new Intent(this, EditListActivity.class));
+            startActivity(new Intent(this, MyListActivity.class));
         }
-        if(view==buttonViewInvitation){
-            //view invitation
-            finish();
-            startActivity(new Intent(this, ViewInvitationActivity.class));
-        }
+//        if(view==buttonViewInvitation){
+//            //view invitation
+//            finish();
+//            startActivity(new Intent(this, ViewInvitationActivity.class));
+//        }
     }
 }

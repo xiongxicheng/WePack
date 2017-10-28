@@ -10,4 +10,6 @@
     <color name="button_default">#1c76bb</color>
     <color name="white">#FFFFFF</color>
     <color name="brown">#A0522D</color>
+    <color name="background">#FADBD8</color>
+    <color name="button">#EC7063</color>
 </resources>

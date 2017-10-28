@@ -27,7 +27,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".CreateTripActivity" />
         <activity android:name=".EditListActivity" />
-        <activity android:name=".ViewInvitationActivity"></activity>
+        <activity android:name=".ViewInvitationActivity" />
+        <activity android:name=".MyListActivity"></activity>
     </application>
 
 </manifest>
