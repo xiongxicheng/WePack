@@ -60,6 +60,14 @@
             android:textStyle="bold"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp"
+            app:srcCompat="@drawable/logo" />
 
 
         </RelativeLayout>

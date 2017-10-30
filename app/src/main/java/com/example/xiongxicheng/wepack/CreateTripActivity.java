@@ -7,15 +7,21 @@ import android.content.Intent;
 import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -25,9 +31,22 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class CreateTripActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
+//import com.google.android.gms.location.places.GeoDataClient;
+import com.google.android.gms.location.places.Places;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.common.ConnectionResult;
 
-    private EditText editTextDestination;
+public class CreateTripActivity extends FragmentActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener, OnConnectionFailedListener{
+
+    public double lat=0.0;
+    public double lng=0.0;
+    public String destinationString;
+    //protected GeoDataClient mGeoDataClient;
+    private GoogleApiClient mGoogleApiClient;
+    private TextView textViewDestination;
     private EditText editTextStartDate;
     private EditText editTextEndDate;
     private Button buttonCreateList;
@@ -35,18 +54,46 @@ public class CreateTripActivity extends AppCompatActivity implements View.OnClic
     private FirebaseAuth firebaseAuth;
     private Spinner spinnerTripType;
 
+    private PlaceAutocompleteFragment placeAutocompleteFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_trip);
         buttonCreateList = (Button) findViewById(R.id.buttonCreateList);
-        editTextDestination = (EditText) findViewById(R.id.editTextDestination);
+        textViewDestination = (TextView) findViewById(R.id.textViewDestination);
         editTextStartDate = (EditText) findViewById(R.id.editTextStartDate);
         editTextEndDate = (EditText) findViewById(R.id.editTextEndDate);
         spinnerTripType = (Spinner) findViewById(R.id.spinnerTripType);
+        placeAutocompleteFragment = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
         buttonCreateList.setOnClickListener(this);
+
+        //mGeoDataClient = Places.getGeoDataClient(this,null);
+
+        mGoogleApiClient = new GoogleApiClient
+                .Builder(this)
+                .addApi(Places.GEO_DATA_API)
+                .enableAutoManage(this, this)
+                .build();
+        placeAutocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                //get info
+                lat = place.getLatLng().latitude;
+                lng = place.getLatLng().longitude;
+                destinationString = place.getName().toString();
+            }
+
+            @Override
+            public void onError(Status status) {
+                //handle error
+            }
+        });
+
 
         String[] types = {"Ski", "Camping", "Beach", "None"};
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,types);
@@ -69,12 +116,13 @@ public class CreateTripActivity extends AppCompatActivity implements View.OnClic
         });
     }
 
+
     public static class DatePickerDialogStart extends DialogFragment implements DatePickerDialog.OnDateSetListener{
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState){
             final Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH);
+            int month = calendar.get(Calendar.MONTH)+1;
             int day = calendar.get(Calendar.DAY_OF_MONTH);
             DatePickerDialog datePickerDialogStart = new DatePickerDialog(getActivity(),this,year,month,day);
             return datePickerDialogStart;
@@ -104,7 +152,7 @@ public class CreateTripActivity extends AppCompatActivity implements View.OnClic
 
 
     private void saveTripInfo(){
-        String destination = editTextDestination.getText().toString().trim();
+        String destination = textViewDestination.getText().toString().trim();
         String startDateString = editTextStartDate.getText().toString().trim();
         Date startDate = new Date(Integer.parseInt(startDateString.split("-")[2]),
                 Integer.parseInt(startDateString.split("-")[0]),
@@ -116,7 +164,7 @@ public class CreateTripActivity extends AppCompatActivity implements View.OnClic
         TripInfo tripInfo = new TripInfo(destination, startDate, endDate);
         FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference.child(user.getUid()).setValue(tripInfo);
-
+        //Toast.makeText(this,Double.toString(lat)+","+Double.toString(lng),Toast.LENGTH_SHORT).show();
     }
 
 //    private List<String> getTemplateList(TripInfo tripInfo){
@@ -137,6 +185,11 @@ public class CreateTripActivity extends AppCompatActivity implements View.OnClic
     }
     @Override
     public void onNothingSelected(AdapterView<?> arg0){
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult){
 
     }
 }

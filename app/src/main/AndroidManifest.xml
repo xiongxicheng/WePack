@@ -29,6 +29,11 @@
         <activity android:name=".EditListActivity" />
         <activity android:name=".ViewInvitationActivity" />
         <activity android:name=".MyListActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAlWhN60w8m5mxeTiqKg3O6H-_tuz-8GYI"/>
+
     </application>
 
 </manifest>
