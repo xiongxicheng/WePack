@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
-    private FirebaseAuth firebaseAuth;
+    //private FirebaseAuth firebaseAuth;
 
     private Button buttonLogout;
     private Button buttonCreate;
@@ -24,13 +24,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        if(firebaseAuth.getCurrentUser()==null){
-            finish();
-            startActivity(new Intent(this,LoginActivity.class));
-        }
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+//        firebaseAuth = FirebaseAuth.getInstance();
+//
+//        if(firebaseAuth.getCurrentUser()==null){
+//            finish();
+//            startActivity(new Intent(this,LoginActivity.class));
+//        }
+//        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         buttonCreate = (Button) findViewById(R.id.buttonCreate);
@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
         if(view == buttonLogout){
-            firebaseAuth.signOut();
+            //firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this,LoginActivity.class));
         }

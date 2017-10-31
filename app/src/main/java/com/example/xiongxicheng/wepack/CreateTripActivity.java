@@ -130,7 +130,7 @@ public class CreateTripActivity extends FragmentActivity implements View.OnClick
 
         public void onDateSet(DatePicker view, int year, int month, int day){
             EditText editText = (EditText) getActivity().findViewById(R.id.editTextStartDate);
-            editText.setText(month+"-"+day+"-"+year);
+            editText.setText((1+month)+"-"+day+"-"+year);
         }
     }
     public static class DatePickerDialogEnd extends DialogFragment implements DatePickerDialog.OnDateSetListener{
@@ -146,7 +146,7 @@ public class CreateTripActivity extends FragmentActivity implements View.OnClick
 
         public void onDateSet(DatePicker view, int year, int month, int day){
             EditText editText = (EditText) getActivity().findViewById(R.id.editTextEndDate);
-            editText.setText(month+"-"+day+"-"+year);
+            editText.setText((1+month)+"-"+day+"-"+year);
         }
     }
 

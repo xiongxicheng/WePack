@@ -18,6 +18,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button buttonSignup;
@@ -27,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ProgressDialog progressDialog;
 
-    private FirebaseAuth firebaseAuth;
+    //private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +45,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressDialog = new ProgressDialog(this);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser()!=null){
-            //Home activity here
-            finish();
-            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-        }
+//        firebaseAuth = FirebaseAuth.getInstance();
+//        if(firebaseAuth.getCurrentUser()!=null){
+//            //Home activity here
+//            finish();
+//            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+//        }
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://wepack4261.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        final HerokuService service = retrofit.create(HerokuService.class);
 
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         textViewSignin = (TextView) findViewById(R.id.textViewSignin);
 
-        buttonSignup.setOnClickListener(this);
+        //final User user = new User(editTextEmail.getText().toString(),editTextPassword.getText().toString());
+
         textViewSignin.setOnClickListener(this);
+
+        buttonSignup.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                User user = new User("chenchen","chenchen");
+                Call<User> call = service.createUser("chenchen","chenchen","chenchen");
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        //check if already registered
+                        User newUser = response.body();
+                        editTextEmail.setText("register");
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+
+                    }
+                });
+            }
+
+        });
 
     }
     private void regiterUser(){
@@ -66,29 +103,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressDialog.setMessage("Registering...");
         //progressDialog.show();
 
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            //Home activity here
-                            finish();
-                            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-
-                            Toast.makeText(MainActivity.this,"Registered successfully",Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(MainActivity.this,"Fail to register",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+//        firebaseAuth.createUserWithEmailAndPassword(email,password)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if(task.isSuccessful()){
+//                            //Home activity here
+//                            finish();
+//                            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+//
+//                            Toast.makeText(MainActivity.this,"Registered successfully",Toast.LENGTH_SHORT).show();
+//                        }else {
+//                            Toast.makeText(MainActivity.this,"Fail to register",Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
 
     }
 
     @Override
     public void onClick(View view){
-        if(view==buttonSignup){
-            regiterUser();
-        }
+//        if(view==buttonSignup){
+//            startActivity(new Intent(this,HomeActivity.class));
+//        }
         if(view==textViewSignin){
             startActivity(new Intent(this,LoginActivity.class));
         }
