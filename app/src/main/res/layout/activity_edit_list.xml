@@ -7,8 +7,8 @@
     tools:context="com.example.xiongxicheng.wepack.EditListActivity">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="368dp"
+            android:layout_height="495dp"
             android:background="@color/background"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
@@ -16,94 +16,75 @@
                 <ListView
                     android:id="@+id/listViewPackList"
                     android:layout_width="350dp"
-                    android:layout_height="250dp"
-                    android:layout_alignParentTop="true"
+                    android:layout_height="300dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
 
 
                 <Button
                     android:id="@+id/buttonAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/button"
                     android:text="Add"
-                    android:textStyle="bold"
-                    android:background="@color/button"
                     android:textColor="@color/white"
-                    android:layout_marginTop="11dp"
-                    android:layout_below="@+id/listViewPackList"
+                    android:textStyle="bold"
+                    android:layout_above="@+id/buttonShare"
                     android:layout_alignRight="@+id/listViewPackList"
-                    android:layout_alignEnd="@+id/listViewPackList" />
-
-                <Button
-                    android:id="@+id/buttonSave"
-                    android:layout_width="30dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="11dp"
-                    android:text="Save"
-                    android:textStyle="bold"
-                    android:background="@color/button"
-                    android:textColor="@color/white"
-                    android:layout_below="@+id/buttonAdd"
-                    android:layout_alignLeft="@+id/buttonAdd"
-                    android:layout_alignStart="@+id/buttonAdd"
-                    android:layout_alignRight="@+id/buttonAdd"
-                    android:layout_alignEnd="@+id/buttonAdd" />
+                    android:layout_alignEnd="@+id/listViewPackList"
+                    android:layout_marginBottom="14dp" />
 
                 <EditText
                     android:id="@+id/editTextAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
                     android:hint="more item"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_above="@+id/buttonSave"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    />
+                    android:inputType="textPersonName"
+                    android:layout_alignTop="@+id/buttonAdd"
+                    android:layout_toLeftOf="@+id/buttonAdd"
+                    android:layout_toStartOf="@+id/buttonAdd"
+                    android:layout_marginRight="21dp"
+                    android:layout_marginEnd="21dp" />
 
                 <Button
                     android:id="@+id/buttonShare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="share"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
+                    android:layout_alignBaseline="@+id/editTextShare"
+                    android:layout_alignBottom="@+id/editTextShare"
+                    android:layout_alignLeft="@+id/buttonAdd"
+                    android:layout_alignStart="@+id/buttonAdd"
                     android:background="@color/button"
-                    android:layout_below="@+id/buttonSave"
-                    android:layout_alignLeft="@+id/buttonSave"
-                    android:layout_alignStart="@+id/buttonSave"
-                    android:layout_marginTop="10dp" />
+                    android:text="share"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextShare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonShare"
+                    android:layout_above="@+id/buttonLogout"
                     android:layout_alignLeft="@+id/editTextAdd"
                     android:layout_alignStart="@+id/editTextAdd"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="name/email address" />
+                    android:hint="name/email address"
+                    android:inputType="textPersonName" />
 
                 <Button
                     android:id="@+id/buttonLogout"
                     android:layout_width="65dp"
                     android:layout_height="65dp"
-                    android:text="Log out"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
                     android:background="@drawable/logout"
+                    android:text="Log out"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignRight="@+id/editTextShare"
-                    android:layout_alignEnd="@+id/editTextShare" />
+                    android:layout_centerHorizontal="true" />
 
 
         </RelativeLayout>
-
-
 
 
 </android.support.constraint.ConstraintLayout>

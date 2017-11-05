@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewSignin;
-
     private ProgressDialog progressDialog;
+    private static User currentUser;
 
     //private FirebaseAuth firebaseAuth;
 
@@ -69,19 +69,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSignup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                User user = new User("chenchen","chenchen");
-                Call<User> call = service.createUser("chenchen","chenchen","chenchen");
+                Call<User> call = service.createUser(editTextEmail.getText().toString(),editTextPassword.getText().toString(),editTextEmail.getText().toString());
                 call.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         //check if already registered
                         User newUser = response.body();
-                        editTextEmail.setText("register");
+                        currentUser = newUser;
+                        startActivity(new Intent(MainActivity.this,HomeActivity.class));
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-
+                        Toast.makeText(MainActivity.this,"Register Failed",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -130,4 +130,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this,LoginActivity.class));
         }
     }
+    public static User getCurrentUser(){
+        return currentUser;
+    }
+    public static void setCurrentUser(User user){
+        currentUser = user;
+    }
+
 }

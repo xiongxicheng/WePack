@@ -43,4 +43,5 @@ public class Trip {
         this.name = tripName;
         this.owner = userName;
     }
+
 }

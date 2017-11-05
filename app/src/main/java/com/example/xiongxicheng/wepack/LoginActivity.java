@@ -17,6 +17,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -25,9 +31,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextPassword;
     private TextView textViewSignup;
 
-    private ProgressDialog progressDialog;
-
-    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +42,39 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         textViewSignup = (TextView) findViewById(R.id.textViewSignup);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser()!=null){
-            //Home activity here
-            finish();
-            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-        }
-
-        buttonSignin.setOnClickListener(this);
+        //buttonSignin.setOnClickListener(this);
         textViewSignup.setOnClickListener(this);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://wepack4261.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        final HerokuService service = retrofit.create(HerokuService.class);
+        buttonSignin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Call<User> call = service.validate(editTextEmail.getText().toString(),editTextPassword.getText().toString());
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        //check if already registered
+                        if (response.isSuccessful()){
+                            User currentUser = response.body();
+                            MainActivity.setCurrentUser(currentUser);
+                            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                        }else{
+                            Toast.makeText(LoginActivity.this,"Wrong username or password",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+
+                    }
+                });
+
+            }
+
+        });
     }
 
     private void userLogin(){
@@ -62,17 +89,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(this,"Please enter password",Toast.LENGTH_SHORT).show();
             return;
         }
-        firebaseAuth.signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            //Home activity
-                            finish();
-                            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-                        }
-                    }
-                });
 
     }
 
@@ -86,4 +102,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this,MainActivity.class));
         }
     }
+
 }

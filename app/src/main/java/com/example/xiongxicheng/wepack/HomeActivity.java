@@ -18,7 +18,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 //    private Button buttonViewInvitation;
     private Button buttonLists;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
