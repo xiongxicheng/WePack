@@ -14,6 +14,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Field;
+import retrofit2.http.Query;
 
 
 public interface HerokuService {
@@ -48,4 +49,13 @@ public interface HerokuService {
                                  @Field("_id") String id,
                                  @Field("ownerusername") String ownerusername
                                  );
+
+    @FormUrlEncoded
+    @POST("trips/trip")
+    Call<Trip> createTrip(@Field("owner") String username,
+                          @Field("name") String tripName,
+                          @Field("keyword") String keyword);
+
+    @GET("keywords")
+    Call<List<KeywordList>> getAllKeywordLists();
 }

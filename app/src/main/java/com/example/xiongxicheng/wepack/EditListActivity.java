@@ -72,10 +72,40 @@ public class EditListActivity extends AppCompatActivity implements View.OnClickL
 
         currentTrip = MyListActivity.getSelectedTrip();
         owner = MainActivity.getCurrentUser();
+        final List<String> typeList = CreateTripActivity.getTypeItems();
 
         buttonAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                List<String> s = typeList;
+                while(s.size() > 0){
+                    String item = s.get(0);
+                    Call<Trip> call1 = service.addItem(item,currentTrip._id,currentTrip.owner);
+                    call1.enqueue(new Callback<Trip>() {
+                        @Override
+                        public void onResponse(Call<Trip> call1, Response<Trip> response) {
+                        }
+
+                        @Override
+                        public void onFailure(Call<Trip> call1, Throwable t) {
+
+                        }
+                    });
+                    s.remove(item);
+                }
+//                Call<Trip> call1 = service.addItem("coke",currentTrip._id,currentTrip.owner);
+//                call1.enqueue(new Callback<Trip>() {
+//                    @Override
+//                    public void onResponse(Call<Trip> call1, Response<Trip> response) {
+//                        myAdapter.add("coke");
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<Trip> call1, Throwable t) {
+//
+//                    }
+//                });
+
                 Call<Trip> call = service.addItem(editTextAdd.getText().toString().trim(),currentTrip._id,currentTrip.owner);
                 call.enqueue(new Callback<Trip>() {
                     @Override
@@ -119,6 +149,10 @@ public class EditListActivity extends AppCompatActivity implements View.OnClickL
         listViewPackList.setAdapter(myAdapter);
         for(int i=0;i<items.size();i++){
             myAdapter.add(items.get(i));
+        }
+
+        for(int i = 0; i < typeList.size(); i++){
+            myAdapter.add(typeList.get(i));
         }
 
     }

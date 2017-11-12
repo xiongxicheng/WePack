@@ -46,4 +46,7 @@ public class MyListActivity extends AppCompatActivity implements AdapterView.OnI
     public static Trip getSelectedTrip(){
         return selectedTrip;
     }
+    public static void setSelectedTrip(Trip trip){
+        selectedTrip = trip;
+    }
 }
